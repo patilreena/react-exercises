@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Recat Exercises</title>
+    <script src="https://fb.me/react-15.2.1.js"></script>
+    <script src="https://fb.me/react-dom-15.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+  </head>
+  <body>
+    <div id = "app"> </div>
+    <script type="text/babel">
+      class Sum extends React.Component {
+       constructor(props){
+       super(props);
+      }
+      
+      addCalc() {
+          if(this.props.operator === '+') {
+              return this.props.num1 + this.props.num2;
+           } else if (this.props.operator === '-') {
+               return this.props.num1 - this.props.num2;
+            } else if (this.props.operator === '*') {
+            	  return this.props.num1 - this.props.num2;
+       			} else {
+            			return this.props.num1 - this.props.num2;
+            		}
+            	}
+      
+      	render() {
+      	return (
+         		<div> Calculation is {this.addCalc()} </div>
+      	)
+      }
+      }
+      const num1 = 10;
+      const num2 = 5;
+      const operator = '+';
+      
+      ReactDOM.render(<Sum num1={num1} num2={num2} operator={operator}/>,
+      document.getElementById('app'));
+      
+    </script>
+  </body>
+</html>
