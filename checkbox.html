@@ -11,10 +11,29 @@
 	<script type="text/babel">
 
 		class Checkbox extends React.Component {
+			constructor(props) {
+				super(props);
+				this.handleCheck = this.handleCheck.bind(this);
+				this.state = {
+			 		checked:false
+				};
+			}
+
+			handleCheck(){
+				this.setState({checked: !this.state.checked})
+			}
+
 			render() {
+				let msg;
+				if(this.state.checked){
+					msg = "checked";
+					} else {
+					msg = "unchecked";
+					}
 				return(
 					<div>
-						<input type="Checkbox"/>
+						<input type="Checkbox" onChange={this.handleCheck}/>
+						<p> This Box is {msg}</p>
 					</div>
 				)
 			}
