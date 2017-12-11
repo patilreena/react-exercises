@@ -75,7 +75,15 @@
 			}
 		}
 
-		ReactDOM.render(<Board count={10}/>,
+		Board.propTypes = {
+			count: (prop,propName) => {
+				if(typeof prop[propName] !== "number") {
+					return new Error("count must be number");
+				}
+			}
+		}
+
+		ReactDOM.render(<Board count="ten"/>,
 			document.getElementById('react-container'));
 		
 	</script>
